@@ -11,7 +11,7 @@ namespace Project_WTF
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public static int selectedLevel = 1;
+        public static int selectedLevel = 3;
 
         enum gamestate { menu, gamePlay, levelselect};
         static gamestate currentGamestate = gamestate.menu;
