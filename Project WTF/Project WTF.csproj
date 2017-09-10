@@ -42,6 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="GameStates\GamePlay.cs" />
+    <Compile Include="GameStates\LevelSelect.cs" />
+    <Compile Include="GameStates\Menu.cs" />
     <Compile Include="Project_WTF.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

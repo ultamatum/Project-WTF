@@ -1,12 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project_WTF.GameStates;
 
 namespace Project_WTF
 {
     public class Project_WTF : Game
     {
-
         #region Declarations
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -15,15 +15,25 @@ namespace Project_WTF
 
         enum gamestate { menu, gamePlay, levelselect};
         static gamestate currentGamestate = gamestate.menu;
-        #endregion
-   
 
+        static bool changedState = true;
+
+        Menu menu = new Menu();
+        GamePlay game = new GamePlay();
+        LevelSelect lvlSelect = new LevelSelect();
+        #endregion
+
+        #region Constructor
         public Project_WTF()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferWidth = Constants.SCREENWIDTH;
+            graphics.PreferredBackBufferHeight = Constants.SCREENHEIGHT;
+            graphics.IsFullScreen = Constants.FULLSCREEN;
         }
-        
+        #endregion 
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -49,6 +59,24 @@ namespace Project_WTF
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             base.Draw(gameTime);
+        }
+
+        public static void SetGameState(int stateID)
+        {
+            changedState = true;
+
+            switch(stateID)
+            {
+                case 0:
+                    currentGamestate = gamestate.menu;
+                    break;
+                case 1:
+                    currentGamestate = gamestate.gamePlay;
+                    break;
+                case 2:
+                    currentGamestate = gamestate.levelselect;
+                    break;
+            }
         }
     }
 }
