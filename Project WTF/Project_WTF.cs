@@ -54,7 +54,7 @@ namespace Project_WTF
             switch(currentGamestate)
             {
                 case gamestate.menu:
-                    if(changedState == true)
+                    if(changedState)
                     {
                         menu.Init();
                         changedState = false;
@@ -62,20 +62,21 @@ namespace Project_WTF
                     menu.Update();
                     break;
                 case gamestate.gamePlay:
-                    if (changedState == true)
+                    if (changedState)
                     {
-                        menu.Init();
+                        game.Init();
                         changedState = false;
                     }
                     game.Update();
                     break;
                 case gamestate.levelselect:
-                    if (changedState = true)
+                    if (changedState)
                     {
                         lvlSelect.Init();
                         changedState = false;
                     }
-
+                    lvlSelect.Update();
+                    break;
             }
 
             base.Update(gameTime);
@@ -85,9 +86,31 @@ namespace Project_WTF
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            if(changedState)
+            {
+                return;
+            }
+
+            switch(currentGamestate)
+            {
+                case gamestate.menu:
+                    menu.Draw();
+                    break;
+                case gamestate.gamePlay:
+                    game.Draw();
+                    break;
+                case gamestate.levelselect:
+                    lvlSelect.Draw();
+                    break;
+            }
+
             base.Draw(gameTime);
         }
-
+        
+        /// <summary>
+        /// Change the gamestate to the given stateID
+        /// </summary>
+        /// <param name="stateID">0 = Menu, 1 = Game Play, 2 = Level Select</param>
         public static void SetGameState(int stateID)
         {
             changedState = true;

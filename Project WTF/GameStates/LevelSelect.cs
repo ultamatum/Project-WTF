@@ -30,7 +30,10 @@ namespace Project_WTF.GameStates
 
         }
 
-        public 
+        public void Draw()
+        {
+
+        }
         #endregion
     }
 }
