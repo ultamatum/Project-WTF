@@ -51,6 +51,33 @@ namespace Project_WTF
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            switch(currentGamestate)
+            {
+                case gamestate.menu:
+                    if(changedState == true)
+                    {
+                        menu.Init();
+                        changedState = false;
+                    }
+                    menu.Update();
+                    break;
+                case gamestate.gamePlay:
+                    if (changedState == true)
+                    {
+                        menu.Init();
+                        changedState = false;
+                    }
+                    game.Update();
+                    break;
+                case gamestate.levelselect:
+                    if (changedState = true)
+                    {
+                        lvlSelect.Init();
+                        changedState = false;
+                    }
+
+            }
+
             base.Update(gameTime);
         }
 
