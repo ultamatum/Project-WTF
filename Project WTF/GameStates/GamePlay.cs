@@ -13,7 +13,7 @@ namespace Project_WTF.GameStates
     class GamePlay
     {
         #region Declarations
-        private Player player = new Player;
+        //private Player player = new Player;
 
         private SpriteFont font;
         #endregion
@@ -50,7 +50,7 @@ namespace Project_WTF.GameStates
             sp.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
             TileMap.Draw(sp);
 
-            player.Draw();
+            //player.Draw();
 
             sp.End();
         }

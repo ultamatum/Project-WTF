@@ -14,7 +14,7 @@ namespace Project_WTF
         public static int selectedLevel = 3;
 
         enum gamestate { menu, gamePlay, levelselect};
-        static gamestate currentGamestate = gamestate.menu;
+        static gamestate currentGamestate = gamestate.gamePlay;
 
         static bool changedState = true;
 
@@ -64,7 +64,7 @@ namespace Project_WTF
                 case gamestate.gamePlay:
                     if (changedState)
                     {
-                        game.Init();
+                        game.Init(Content, 0);
                         changedState = false;
                     }
                     game.Update();
@@ -97,7 +97,7 @@ namespace Project_WTF
                     menu.Draw();
                     break;
                 case gamestate.gamePlay:
-                    game.Draw();
+                    game.Draw(spriteBatch);
                     break;
                 case gamestate.levelselect:
                     lvlSelect.Draw();

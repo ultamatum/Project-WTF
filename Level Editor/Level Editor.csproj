@@ -71,7 +71,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Game Development\Project WTF\Project WTF\Project WTF.csproj">
+    <ProjectReference Include="..\Project WTF\Project WTF.csproj">
       <Project>{6f754df8-c004-4eab-a413-013790e915ec}</Project>
       <Name>Project WTF</Name>
     </ProjectReference>
